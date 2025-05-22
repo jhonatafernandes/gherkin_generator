@@ -1,0 +1,59 @@
+```json
+{
+  "cenarios": [
+    {
+      "nome": "Login com credenciais válidas",
+      "dados_teste": {
+        "Usuario": "admin",
+        "Senha": "senha123"
+      },
+      "resultado_esperado": "Login bem-sucedido!"
+    },
+    {
+      "nome": "Login com credenciais inválidas",
+      "dados_teste": {
+        "Usuario": "usuario_invalido",
+        "Senha": "senha_invalida"
+      },
+      "resultado_esperado": "Usuário ou senha inválidos."
+    },
+    {
+      "nome": "Tentativa de login com campos vazios",
+      "dados_teste": {
+        "Usuario": "",
+        "Senha": ""
+      },
+      "resultado_esperado": "Usuário ou senha inválidos."
+    },
+    {
+      "nome": "Inserir dados com comprimento máximo permitido",
+      "dados_teste": {
+        "Usuario": "usuariomax",
+        "Senha": "senhamax"
+      },
+      "resultado_esperado": "Usuário ou senha inválidos."
+    },
+    {
+      "nome": "Inserção de caracteres especiais nos campos de entrada",
+      "dados_teste": {
+        "Usuario": "!@#$%",
+        "Senha": "^&*()"
+      },
+      "resultado_esperado": "Usuário ou senha inválidos."
+    }
+  ],
+  "estrutura_massa_dados": {
+    "Usuario": "String",
+    "Senha": "String"
+  },
+  "dependencias_dados": {
+    "cenarios": [
+      {
+        "dependencia": "Login com campos válidos depende da definição correta das credenciais válidas ('admin' e 'senha123')."
+      }
+    ]
+  }
+}
+```
+
+Este JSON fornece um conjunto completo de dados de teste para os cenários Gherkin, garantindo cobertura abrangente para casos válidos, inválidos, de borda, e especiais. A estrutura da massa de dados é simples, com campos de texto para 'Usuario' e 'Senha', e as dependências de dados são claramente identificadas, assegurando a precisão dos testes.

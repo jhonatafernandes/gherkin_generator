@@ -1,0 +1,113 @@
+# tasks.yaml
+# Definição das tarefas para o sistema de criação de artefatos de teste automatizado.
+# Todas as tarefas devem ser executadas e seus resultados apresentados em português do Brasil.
+
+analise_requisitos_task:
+  description: >
+    Analisar detalhadamente a descrição da funcionalidade fornecida: 
+
+    <descricao_funcionalidade>
+    {descricao_funcionalidade}
+    </descricao_funcionalidade>
+
+    Interpretar e decompor a entrada em componentes menores e gerenciáveis.
+    Identificar claramente os atores envolvidos, as ações que podem realizar, as pré-condições necessárias,
+    as pós-condições esperadas e os fluxos principais e alternativos da funcionalidade.
+    Certifique-se de que toda a sua análise e saída estejam em português do Brasil.
+  expected_output: >
+    Um documento estruturado contendo:
+    1. Requisitos clarificados e detalhados da funcionalidade.
+    2. Lista de sub-funcionalidades identificadas.
+    3. Identificação dos atores e seus papéis.
+    4. Lista de pré-condições para cada fluxo principal.
+    5. Lista de pós-condições (resultados esperados) para cada fluxo principal.
+    6. Descrição dos fluxos principais e alternativos.
+    Todo o conteúdo deve estar em português do Brasil.
+  agent: analista_requisitos
+  # O contexto (descricao_funcionalidade) será passado no kickoff do Crew.
+
+definicao_estrategia_testes_task:
+  description: >
+    Com base nos requisitos detalhados e analisados na etapa anterior (fornecidos no contexto),
+    definir uma estratégia de teste abrangente.
+    Identificar os diferentes tipos de cenários de teste necessários (positivos, negativos, de borda, exploratórios).
+    Priorizar os cenários de teste com base no risco e na criticidade da funcionalidade.
+    Listar os critérios de aceitação chave que devem ser validados.
+    Identificar áreas de maior risco que exigem atenção especial nos testes.
+    Toda a sua análise e saída devem estar em português do Brasil.
+  expected_output: >
+    Um documento de estratégia de testes contendo:
+    1. Lista de tipos de cenários de teste a serem criados (ex: funcionais, usabilidade, etc.).
+    2. Lista priorizada de cenários de teste de alto nível.
+    3. Critérios de aceitação chave para a funcionalidade.
+    4. Identificação e justificativa das áreas de risco e foco dos testes.
+    Todo o conteúdo deve estar em português do Brasil.
+  agent: estrategista_testes
+
+criacao_cenarios_gherkin_task:
+  description: >
+    Utilizando os requisitos detalhados e a estratégia de testes (incluindo cenários de alto nível e critérios de aceitação)
+    fornecidos nas etapas anteriores (disponíveis no contexto), traduza-os para a sintaxe Gherkin (Dado, Quando, Então).
+    Crie cenários claros, concisos, padronizados e que sigam as melhores práticas de escrita Gherkin.
+    Foque na criação de steps reutilizáveis.
+    Organize os cenários em um ou mais arquivos .feature, se apropriado.
+    Toda a sua saída deve estar em português do Brasil.
+  expected_output: >
+    Um ou mais arquivos no formato markdown mas com o conteúdo do tipo .feature:
+    - Cenários de teste escritos em Gherkin (português do Brasil).
+    - Steps bem definidos e com potencial de reutilização.
+    - Tags relevantes para organização (se aplicável).
+    O conteúdo dos arquivos deve estar integralmente em português do Brasil e no formato markdown mas escritos como se fossem .feature.
+  agent: autor_gherkin
+
+geracao_dados_teste_task:
+  description: >
+    Com base nos cenários Gherkin criados na etapa anterior (disponíveis no contexto),
+    identifique e/ou gere os dados de teste necessários para cada cenário.
+    Considere a necessidade de dados válidos, inválidos, de limite e outros casos especiais
+    para garantir a cobertura adequada.
+    Se possível, sugira uma estrutura para a massa de dados.
+    Identifique quaisquer dependências de dados entre os cenários.
+    Toda a sua análise e saída devem estar em português do Brasil.
+  expected_output: >
+    Um documento ou conjunto de arquivos contendo:
+    1. Para cada cenário Gherkin, a lista de dados de teste necessários (entradas e estados esperados).
+    2. Sugestões para a criação de uma massa de dados de teste reutilizável.
+    3. Identificação de dependências de dados entre cenários.
+    4. Retorne os dados em um formato estruturado JSON.
+    Todo o conteúdo deve estar em português do Brasil.
+  agent: especialista_dados_teste
+
+geracao_artefatos_automacao_task:
+  description: >
+    Utilizando os cenários Gherkin e as sugestões de dados de teste das etapas anteriores (disponíveis no contexto),
+    gere os esqueletos de código para os steps de automação (step definitions) na linguagem de programação alvo C#.
+    Se aplicável a testes de UI, identifique possíveis seletores de elementos e sugira uma estrutura para Page Objects.
+    Se aplicável a testes de API, crie templates para as requisições e respostas esperadas.
+    O objetivo é fornecer uma base inicial para a implementação dos testes automatizados.
+    Toda a sua saída deve estar em português do Brasil.
+  expected_output: >
+    Um conjunto de artefatos contendo:
+    1. Arquivos de step definitions com métodos/funções vazias ou com lógica básica para cada step Gherkin.
+    2. (Se aplicável) Sugestões de seletores de UI e estrutura de Page Objects.
+    3. (Se aplicável) Templates de requisições/respostas de API.
+    4. Retorne todos os artefatos em um formato estruturado em markdown.
+    Todo o código e comentários devem estar, preferencialmente, em inglês (padrão para código), mas as explicações e o relatório geral devem estar em português do Brasil.
+  agent: gerador_artefatos_automacao
+
+revisao_qualidade_artefatos_task:
+  description: >
+    Revise minuciosamente todos os artefatos gerados nas etapas anteriores (requisitos analisados, estratégia de testes,
+    cenários Gherkin, dados de teste e esqueletos de código de automação), que estarão disponíveis no contexto.
+    Verifique a consistência, clareza, cobertura, aderência às melhores práticas e aos padrões definidos.
+    Identifique quaisquer ambiguidades, omissões ou áreas de melhoria.
+    Forneça um feedback construtivo e detalhado.
+    Toda a sua análise e relatório devem estar em português do Brasil.
+  expected_output: >
+    Um relatório de revisão de qualidade detalhado, em português do Brasil, contendo:
+    1. Avaliação geral da qualidade dos artefatos.
+    2. Lista de pontos positivos identificados.
+    3. Lista de inconsistências, ambiguidades ou problemas encontrados em cada artefato.
+    4. Sugestões específicas de melhoria para cada problema identificado.
+    5. Confirmação se os artefatos estão prontos para a próxima fase ou se necessitam de retrabalho.
+  agent: revisor_qualidade_testes
