@@ -1,7 +1,4 @@
 # CrewGherkin Crew
-
-[![crewAI](https://img.shields.io/badge/powered%20by-crewAI-blue?style=for-the-badge)](https://crewai.com)
-
 Bem-vindo ao projeto CrewGherkin Crew! Este projeto utiliza o framework [crewAI](https://crewai.com) para criar um sistema multiagente de IA focado na geração de artefatos para testes automatizados. O objetivo principal é auxiliar na criação de cenários Gherkin, estratégias de teste, dados de teste e outros elementos essenciais para um processo de automação de testes robusto e eficiente.
 
 O CrewGherkin Crew é projetado para ajudar equipes de desenvolvimento e QA a:
@@ -60,13 +57,3 @@ Este projeto é mantido por:
 *   **Jhonata Fernandes** - [Linkedin](https://www.linkedin.com/in/jhonata-fernandes-128292126/)
 
 Sinta-se à vontade para entrar em contato ou contribuir!
-
-## Suporte
-
-Para suporte, perguntas ou feedback sobre a CrewGherkin Crew ou crewAI:
-*   Visite nossa [documentação](https://docs.crewai.com)
-*   Entre em contato conosco através do nosso [repositório GitHub](https://github.com/joaomdmoura/crewai)
-*   [Junte-se ao nosso Discord](https://discord.com/invite/X4JWnZnxPb)
-*   [Converse com nossos documentos](https://chatg.pt/DWjSBZn)
-
-Vamos criar maravilhas juntos com o poder e a simplicidade do crewAI.
